@@ -12,6 +12,9 @@ Notes about an item can optionally be added by separating them with a | characte
 ```
 [ ] item without notes
 [ ] item with notes | here are the notes
+[ ] but this|does not work because there is no space
+[ ] also | this | does | not | work | very | well
+[ ] (it will just become "also | this")
 ```
 
 Lists can be divided into headings. I have no idea how to verbally explain my heading denotation scheme.
@@ -34,4 +37,13 @@ Lists can be divided into headings. I have no idea how to verbally explain my he
 
 
 [ ] i.e. i'm too lazy to make the application support them :p
+[ ] meaning they'll get erased, not weirdly categorized
+[ ] all this is still under heading 2, but if this list were loaded and then saved
+[ ] the blank lines would get erased
+[ ] but do put one blank line between top-level headers
+
+~~ like this ~~
+[ ] notice the blank line above the header title
+[ ] yeah that's what you're supposed to do
+[*] i promise all this makes sense in my head
 ```
