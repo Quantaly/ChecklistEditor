@@ -7,13 +7,17 @@ public class Checklist {
 	protected List<ChecklistItem> items;
 	protected List<Heading> subheadings;
 	
+	public static Checklist getEmpty() {
+		return new Checklist(null);
+	}
+	
 	public Checklist(List<ChecklistItem> items) {
 		this(items, new ArrayList<Heading>());
 	}
 	
 	public Checklist(List<ChecklistItem> items, List<Heading> subheadings) {
-		this.items = items;
-		this.subheadings = subheadings;
+		if (items != null) this.items = items; else this.items = new ArrayList<>();
+		if (subheadings != null) this.subheadings = subheadings; else this.subheadings = new ArrayList<>();
 	}
 	
 	public List<ChecklistItem> getItems() {

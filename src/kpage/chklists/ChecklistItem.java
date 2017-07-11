@@ -10,9 +10,9 @@ public class ChecklistItem {
 	}
 	
 	public ChecklistItem(boolean checked, String name, String notes) {
-		this.checked = checked;
-		this.name = name;
-		this.notes = notes;
+		setChecked(checked);
+		setName(name);
+		setNotes(notes);
 	}
 	
 	public void setChecked(boolean checked) {
@@ -32,7 +32,7 @@ public class ChecklistItem {
 	}
 	
 	public void setNotes(String notes) {
-		if (!notes.isEmpty()) this.notes = notes;
+		if (notes != null && !notes.isEmpty()) this.notes = notes;
 		else clearNotes();
 	}
 	
