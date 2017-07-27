@@ -1,12 +1,15 @@
 package kpage.chklists.utils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
 
 import kpage.chklists.*;
 
@@ -14,10 +17,14 @@ public class XMLParser {
 	private XMLParser() {
 	}
 
-	public static Checklist parseChecklist(String path) throws Exception {
+	public static Checklist parseChecklist(String path) throws ParserConfigurationException, SAXException, IOException {
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(path);
+		return parseChecklist(doc);
+	}
+	
+	public static Checklist parseChecklist(Document doc) {
 		doc.getDocumentElement().normalize();
 		Node root = doc.getDocumentElement();
 		return getList(root);

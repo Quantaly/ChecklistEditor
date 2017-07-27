@@ -8,6 +8,7 @@ import java.nio.file.StandardOpenOption;
 import kpage.chklists.Checklist;
 import kpage.chklists.utils.ChecklistParser;
 
+@Deprecated
 public class ChecklistBuffer extends Checklist {
 	protected String path;
 
