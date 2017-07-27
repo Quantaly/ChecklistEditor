@@ -6,42 +6,42 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 import kpage.chklists.Checklist;
-import kpage.chklists.utils.ChecklistParser;
+import kpage.chklists.utils.XMLParser;
 
-public class ChecklistBuffer extends Checklist {
-	protected String path;
+public class XMLChecklistBuffer extends ChecklistBuffer {
 
-	public ChecklistBuffer(String path) {
-		super(null);
-		this.path = path;
+	public XMLChecklistBuffer(String path) {
+		super(path);
 	}
 
+	@Override
 	public boolean load() {
 		try {
-			String file = new String(Files.readAllBytes(Paths.get(path)));
-			Checklist fromFile = ChecklistParser.parseChecklist(file);
+			Checklist fromFile = XMLParser.parseChecklist(path);
 			items = fromFile.getItems();
 			subheadings = fromFile.getSubheadings();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			return false;
 		}
 		return true;
 	}
 
+	@Override
 	public boolean save() {
 		try {
-			String text = toString();
-			Files.write(Paths.get(path), text.getBytes(), StandardOpenOption.CREATE);
+			String xml = toXML();
+			Files.write(Paths.get(path), xml.getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			return false;
 		}
 		return true;
 	}
 
+	@Override
 	public boolean saveAs(String path, boolean copy) {
 		try {
-			String text = toString();
-			Files.write(Paths.get(path), text.getBytes(), StandardOpenOption.CREATE);
+			String xml = toXML();
+			Files.write(Paths.get(path), xml.getBytes(), StandardOpenOption.CREATE);
 			if (!copy) this.path = path;
 		} catch (IOException e) {
 			return false;
@@ -49,7 +49,4 @@ public class ChecklistBuffer extends Checklist {
 		return true;
 	}
 
-	public String getPath() {
-		return path;
-	}
 }

@@ -1,0 +1,18 @@
+<list>
+	<item checked="false">incomplete item</item>
+	<item checked="true">complete item</item>
+	<item checked="false" notes="with some dank notes">another incomplete item</item>
+	<head name="omg a subheading">
+		<item checked="false">and it has items too</item>
+		<item checked="true">holy butts</item>
+		<item checked="true" notes="like, super amazing">this is amazing</item>
+	</head>
+	<head name="subheading 2: electric boogaloo">
+		<item checked="false">hold on because we have</item>
+		<head name="nested subheadings">
+			<item checked="true">mind blown</item>
+			<item checked="false">such nesting</item>
+			<item checked="false">much wow</item>
+		</head>
+	</head>
+</list>
