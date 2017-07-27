@@ -67,11 +67,9 @@ public class ChecklistItem {
 		String chk = getChecked() ? " checked=\"true\"" : " checked=\"false\"";
 		String notes;
 		if (hasNotes()) {
-			// escape characters
-			String rnotes = getNotes().replaceAll("<", "&lt;");
-			rnotes = XMLUtils.escapeChars(rnotes);
+			String rnotes = XMLUtils.escapeChars(getNotes());
 			notes = " notes=\"" + rnotes + "\"";
 		} else notes = "";
-		return "<item" + chk + notes + ">" + getName() + "</item>";
+		return "<item" + chk + notes + ">" + XMLUtils.escapeChars(getName()) + "</item>";
 	}
 }

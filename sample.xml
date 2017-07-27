@@ -15,4 +15,8 @@
 			<item checked="false">much wow</item>
 		</head>
 	</head>
+	<head name="XML-specific things">
+		<item checked="false">&lt;&gt;&amp;&apos;&quot;</item>
+		<item checked="false" notes="&lt;&gt;&amp;&apos;&quot;">more stuff</item>
+	</head>
 </list>
